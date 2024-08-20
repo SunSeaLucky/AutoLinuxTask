@@ -1,14 +1,8 @@
 import requests
-import os
 import codecs
+import ENV
 
 from dotenv import load_dotenv
-
-load_dotenv(".env")
-
-
-username = os.environ.get("IKUUU_USERNAME")
-password = os.environ.get("IKUUU_PASSWORD")
 
 
 def sign():
@@ -18,8 +12,8 @@ def sign():
         url="https://ikuuu.pw/auth/login",
         data={
             "host": "ikuuu.pw",
-            "email": username,
-            "passwd": password,
+            "email": ENV.IKUUU_USERNAME,
+            "passwd": ENV.IKUUU_PASSWORD,
             "code": "",
         },
     )

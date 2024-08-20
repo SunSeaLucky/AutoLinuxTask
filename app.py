@@ -1,10 +1,6 @@
 from iKuuuVPN import signer as ik_signer
 import Mail
-import os
-
-from dotenv import load_dotenv
-
-load_dotenv(".env")
+import ENV
 
 
 def exec_sign_task():
@@ -29,8 +25,8 @@ def exec_sign_task():
 Mail.send_email(
     "Sign Notifications",
     exec_sign_task(),
-    os.environ.get("FROM_MAIL_ADDR"),
-    os.environ.get("TO_MAIL_ADDR"),
-    os.environ.get("STMP_SERVER"),
-    os.environ.get("FROM_MAIL_PASSWORD"),
+    ENV.FROM_MAIL_ADDR,
+    ENV.TO_MAIL_ADDR,
+    ENV.STMP_SERVER,
+    ENV.FROM_MAIL_PASSWORD,
 )
